@@ -1,5 +1,5 @@
 """
-控制manger中所有程式
+控制manger中所有程式(如果程式沒有太複雜這裡可以省略)
 """
 
 from manager.data_manager import data_manager

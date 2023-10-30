@@ -1,0 +1,9 @@
+{"setting":{
+    "model_save_path":"Model/training_model_on_{}/{}",
+    "timeformat" : "%Y%m%d%H%M%S"
+},
+"img":{
+    "img_path":"archive/Brain Tumor/Brain Tumor",
+    "df_path":"archive/Brain Tumor.csv"
+}
+}
