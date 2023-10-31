@@ -1,9 +1,11 @@
 from transformers import AutoFeatureExtractor, AutoModelForImageClassification
-from sklearn.metrics import accuracy_score, classification_report, f1_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, classification_report, f1_score, precision_score, recall_score,confusion_matrix
 import warnings
 import torch
 import os
 import datetime
+import seaborn as sns
+from matplotlib import pyplot as plt
 from torch import nn
 warnings.filterwarnings("ignore")
 
@@ -84,6 +86,12 @@ class DeepLearningModels:
                 total += labels.size(0)
                 correct += (predicted == labels).sum().item() 
         # 混沌矩陣report
+        cm = confusion_matrix(labels.cpu().numpy(), predicted.cpu().numpy())
+        sns.heatmap(cm, annot=True, fmt="d")
+        plt.xlabel("Predicted")
+        plt.ylabel("True")
+        plt.title("Confusion Matrix")
+        plt.savefig("image/" + "confusion_matrix.png")
         print("Recall of the model on the test images: {} %" .format(round(recall_score(labels.cpu().numpy(), predicted.cpu().numpy(), average='macro')*100,4)))
         print('Accuracy of the model on the test images: {} %'.format(round(100 * correct / total,4)))
         print("F1-score of the model on the test images: {} %" .format(round(f1_score(labels.cpu().numpy(), predicted.cpu().numpy(), average='macro')*100,4)))

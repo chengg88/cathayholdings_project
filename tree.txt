@@ -1,0 +1,39 @@
+│  main.py
+│  Readme.md
+│  
+├─archive
+│  │  Brain Tumor.csv
+│  │  bt_dataset_t3.csv
+│  │  
+│  └─Brain Tumor
+│              
+├─common
+│  │  ETL.py
+│  │  model.py
+│  └─
+│          
+├─config
+│      config.json
+│      
+├─install
+│      requirements.txt
+│      
+├─manager
+│  │  data_manager.py
+│  │  db_manager.py
+│  │  image_manager.py
+│  │  manager.py  
+│  └─
+│          
+├─Model
+│  ├─training_model_on_20231030142332
+│  │      LeNet5.pkl
+│  │      
+│  └─training_model_on_20231030142730
+│          LeNet5.pkl
+│          
+└─var
+    └─log
+            cath_project.log
+            cath_project.log.2023-10-25
+            
