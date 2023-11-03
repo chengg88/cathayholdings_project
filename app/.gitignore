@@ -1,0 +1,9 @@
+# file
+/archive/Brain Tumor/*
+/Model/*
+/var/log/*
+/**/__pycache__/*
+
+*.ipynb
+*.log
+*.pyc

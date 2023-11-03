@@ -1,4 +1,0 @@
-2023-10-31 09:12:00,443:INFO:Starting ML pipeline
-2023-10-31 09:12:00,483:INFO:Image info loaded
-2023-10-31 09:12:00,488:INFO:Training on cuda
-2023-10-31 09:14:37,568:INFO:LeNet5_Path:Model/training_model_on_20231031091437/LeNet5.pkl =========> Saved.

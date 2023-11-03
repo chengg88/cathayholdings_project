@@ -50,7 +50,7 @@ class DeepLearningModels:
         model = LeNet5(num_classes).to(device)
         cost = nn.CrossEntropyLoss()  # 交叉墒損失函數，適用多分類任務的損失函數
         #Setting the optimizer with the model parameters and learning rate
-        optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)  # Adam優化器
+        optimizer = torch.optim.RMSprop(model.parameters(), lr=learning_rate)  # Adam優化器
         #this is defined to print how many steps are remaining when training
         total_step = len(self.train_loader)
         for epoch in range(num_epochs):  # 總共進行共num_epochs個回合的訓練

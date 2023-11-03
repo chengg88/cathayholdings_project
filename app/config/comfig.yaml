@@ -1,0 +1,24 @@
+setting:
+  model_save_path: Model/training_model_on_{}/{}
+  log_path:
+  timeformat: %Y%m%d%H%M%S
+
+---------------------------------------------------
+
+img:
+  img_path: archive/Brain Tumor/Brain Tumor
+  info_path: archive/Brain Tumor.csv
+
+
+---------------------------------------------------
+
+hyperparam:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+
+---------------------------------------------------
+
+model_hyperparam:
+  LetNet:
+    
