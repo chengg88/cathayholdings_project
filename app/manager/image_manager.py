@@ -1,17 +1,11 @@
-import cv2
 from torch.utils.data import Dataset
-import torchvision
-from torchvision import datasets,transforms
-from torchvision.transforms import ToTensor
 from torch.utils.data.sampler import SubsetRandomSampler
-from torchvision.io import read_image
 import torch
 import pandas as pd
 import warnings
 import numpy as np
 import os
 from PIL import Image
-from tqdm import tqdm
 warnings.filterwarnings("ignore")
 """
 影像讀取，篩選/前處理等在這
@@ -28,15 +22,10 @@ class image_manager:
         self.logger.info("Image info loaded")
         return print("Complete image info processes")
 
-    def creat_dataset(self, height, width, transform=None, target_transform=None):
+    def creat_dataset(self, height, width, transform):
         self.dataset = CustomImageDataset(annotations_file=self.df,
                                     img_dir=self.img_path, height = height, width=width,
-                                    transform = transforms.Compose([
-                                    transforms.Resize((height, width)),  # 將圖片從原先大小28x28改成LeNet可以接受的輸入大小32x32
-                                    transforms.ToTensor(),  # 轉換成tensor並且將像素範圍(range)從[0, 255]改到[0,1]
-                                    transforms.Normalize(mean = (0.1307,), std = (0.3081,))]))
-
-        return self.dataset
+                                    transform = transform)
 
     def train_test_split(self, val_size, test_size, shuffle_dataset, random_seed, batch_size):
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -68,7 +57,7 @@ class CustomImageDataset(Dataset):
         self.img_dir = img_dir
         self.transform = transform
         self.target_transform = target_transform
-        self.height = height  # Debug
+        self.height = height
         self.width = width
 
     def __len__(self):

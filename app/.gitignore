@@ -3,6 +3,8 @@
 /Model/*
 /var/log/*
 /**/__pycache__/*
+/image
+
 
 *.ipynb
 *.log
